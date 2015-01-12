@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="lazyyang" />
+    <title>序列化与反序列化 | lazyyang</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="lazyyang" type="application/atom+xml" />
+    <link rel="stylesheet" type="text/css" href="/media/css/highlight.css">
+    <link rel="stylesheet" href="/media/css/style.css">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/bdshare.js"></script>
+    <script type="text/javascript" src="/media/js/duoshuo.js"></script>
+    <link rel="stylesheet" href="/media/css/font-awesome.min.css"/>
+
+  </head>
+  <script type="text/javascript">
+    function setTimeSpan(){
+    	var date = new Date();
+    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
+    }
+    
+    Date.prototype.format = function(format)
+		{
+    var o =
+    	{
+    	    "M+" : this.getMonth()+1, //month
+    	    "d+" : this.getDate(),    //day
+    	    "h+" : this.getHours(),   //hour
+    	    "m+" : this.getMinutes(), //minute
+    	    "s+" : this.getSeconds(), //second
+    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+    	    "S" : this.getMilliseconds() //millisecond
+    	}
+    	if(/(y+)/.test(format))
+    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    	for(var k in o)
+    	if(new RegExp("("+ k +")").test(format))
+    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+    	return format;
+		}
+  </script>
+  <body onLoad="setInterval(setTimeSpan,1000);">
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>序列化与反序列化</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="album" class="" href="#">Album</a></span>
+        <span><a title="categories" class="" href="/categories/">Categories</a></span>
+        <span><a title="tags" class="" href="/tags/">Tags</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Rss</a></span>
+        </nav>
+        <article class="content">
+        <section class="post">
+<p>归档即序列化与反序列化</p>
+
+<p>NSCoding是一个协议，主要是下面两个方法</p>
+
+<ul>
+<li><p>-(id)initWithCoder:(NSCoder *)coder;//从coder中读取数据，保存到相应的变量中，即反序列化数据</p></li>
+<li><p>-(void)encoderWithCoder:(NSCoder *)coder;//读取实例变量，并把这些数据写到coder中去。</p></li>
+</ul>
+
+
+<p><strong>NSCoder是一个抽象类，抽象类不能被实例化，只能提供一些想让子类继承的方法</strong> <br/>
+<strong>NSKeyedUnarchiver 从二进制流读取对象</strong> <br/>
+<strong>NSKeyedArchiver   把对象写到二进制流中去</strong></p>
+
+<p>如下，在ZYRestaurant定义了如下这些属性</p>
+
+<pre><code>
+@interface ZYRestaurant : NSObject&lt;NSCoding&gt;
+
+@property (nonatomic,copy) NSString *shopID;
+@property (nonatomic,copy) NSString *title;
+@property (nonatomic,copy) NSString *discount;
+@property (nonatomic,copy) NSString *address;
+
+@end
+</code></pre>
+
+<p>在ZYRestaurant.m里面实现如下这些方法</p>
+
+<pre><code>- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _shopID = [aDecoder decodeObjectForKey:@"shopid"];
+        _title = [aDecoder decodeObjectForKey:@"title"];
+        _discount = [aDecoder decodeObjectForKey:@"discount"];
+        _address = [aDecoder decodeObjectForKey:@"address"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.shopID forKey:@"shopid"];
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.discount forKey:@"discount"];
+    [aCoder encodeObject:self.address forKey:@"address"];
+}
+</code></pre>
+
+</section>
+<section class="meta">
+<br/>
+<span>
+	<a  href="/2014/06/26/loadviewyu-viewdidloadde-qu-bie/" class="pageNav"  >Previous</a>
+	&nbsp;&nbsp;&nbsp;
+	<a  href="/2015/01/11/tow/" class="pageNav"  >Next</a>
+</span>
+</section>
+<hr>
+<div class="ds-thread" data-thread-key="/2014/06/26/xu-lie-hua-yu-fan-xu-lie-hua"  data-title="序列化与反序列化 - "></div>
+<br/>
+
+        </article>
+      </div>
+
+    <footer>
+        <p id="footer"><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - 2015 by <a href="/about/">lazyyang</a> | <span class="label label-info" id="timeSpan"></span></small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>

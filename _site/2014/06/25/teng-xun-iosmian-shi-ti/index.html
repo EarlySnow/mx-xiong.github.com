@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="lazyyang" />
+    <title>腾讯iOS面试题 | lazyyang</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="lazyyang" type="application/atom+xml" />
+    <link rel="stylesheet" type="text/css" href="/media/css/highlight.css">
+    <link rel="stylesheet" href="/media/css/style.css">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/bdshare.js"></script>
+    <script type="text/javascript" src="/media/js/duoshuo.js"></script>
+    <link rel="stylesheet" href="/media/css/font-awesome.min.css"/>
+
+  </head>
+  <script type="text/javascript">
+    function setTimeSpan(){
+    	var date = new Date();
+    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
+    }
+    
+    Date.prototype.format = function(format)
+		{
+    var o =
+    	{
+    	    "M+" : this.getMonth()+1, //month
+    	    "d+" : this.getDate(),    //day
+    	    "h+" : this.getHours(),   //hour
+    	    "m+" : this.getMinutes(), //minute
+    	    "s+" : this.getSeconds(), //second
+    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+    	    "S" : this.getMilliseconds() //millisecond
+    	}
+    	if(/(y+)/.test(format))
+    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    	for(var k in o)
+    	if(new RegExp("("+ k +")").test(format))
+    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+    	return format;
+		}
+  </script>
+  <body onLoad="setInterval(setTimeSpan,1000);">
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>腾讯iOS面试题</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="album" class="" href="#">Album</a></span>
+        <span><a title="categories" class="" href="/categories/">Categories</a></span>
+        <span><a title="tags" class="" href="/tags/">Tags</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Rss</a></span>
+        </nav>
+        <article class="content">
+        <section class="post">
+<h1>腾讯</h1>
+
+<hr />
+
+<p>昨天去面腾讯地图的iOS，下面是我总结的一些问题。</p>
+
+<ol>
+<li><p>假如沙盒路径下有一个文件，文件里面有1000万个学生成绩，怎么对这个学生的成绩进行排序让其效率更高(假设内存足够大，可以一次性载入1000万个学生)</p></li>
+<li><p>从1000万个数里以最快的效率选出其中最大的100个(假设内存足够大，可以一次性载入1000万个成绩)</p></li>
+</ol>
+
+
+<!--more-->
+
+
+<ol>
+<li><p>一个简单的游戏 <br/>
+a.假如有3个杯子，其中有一个杯子的下面有钻石，现在让你选一个， 然后系统帮你去除一个没有钻石的杯子，现在问你要不要换另外一个杯子(也就是问剩下两个杯子下面有钻石的概率是不是一样的) <br/>
+b.换一种情况。假如有1000万张彩票(只有一张中奖)，先让你从1000玩里随便选一个，然后系统帮你去除其中9999998张没中奖的，留下你选的一张和另外一张，问你要不要换成剩下的另一张(同样是问剩下两张彩票的中奖概率是不是一样的)</p></li>
+<li><p>你对iOS哪一块最了解？然后针对那一点各种问。我说我对下载模块比较熟悉，然后他就各种问。例如通过NSURLCOnnection下载的数据与UI交互的优化、断点下载的实现原理等</p></li>
+<li><p>LRUCache算法.比如你有10M的内存，怎么去处理20M的文件</p></li>
+<li><p>你对MVC的理解，你如何你构架一个项目</p></li>
+<li><p>短信功能中，scrollview下移量和手势下移量不成比例，求这两个下移量的关系算法</p></li>
+</ol>
+
+
+<h3>总结</h3>
+
+<p>其实腾讯的面试，更多是引导型的面试。即使你iOS全部会，你说你的算法很厉害(那面试官可能更侧重的去问你算法)，只要你有一点能够打动面试官，那么得到offer的可能性也就更大了。</p>
+
+</section>
+<section class="meta">
+<br/>
+<span>
+	<a  href="/2014/05/24/create-octopress-blog/" class="pageNav"  >Previous</a>
+	&nbsp;&nbsp;&nbsp;
+	<a  href="/2014/06/26/loadviewyu-viewdidloadde-qu-bie/" class="pageNav"  >Next</a>
+</span>
+</section>
+<hr>
+<div class="ds-thread" data-thread-key="/2014/06/25/teng-xun-iosmian-shi-ti"  data-title="腾讯iOS面试题 - "></div>
+<br/>
+
+        </article>
+      </div>
+
+    <footer>
+        <p id="footer"><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - 2015 by <a href="/about/">lazyyang</a> | <span class="label label-info" id="timeSpan"></span></small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>
