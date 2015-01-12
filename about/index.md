@@ -4,18 +4,15 @@ layout: page
 comments: no
 ---
 
-哈哈哈哈
+有时候选择一个人行走，不是寂寞，仅仅是因为听到心底的声音！
 
 ----
 
 ###联系方式：        
 
-邮箱: [lazyyang@126.com](mailto:lazyyang@126.com)     
-微博: [_Lazyz](http://weibo.com/17875623)	    
-Github: [lazyyang](https://github.com/lazyyang)        
+邮箱: [yanyupingshen@126.com](mailto:yanyupingshen@126.com)     
+微博: [小熋戈](http://weibo.com/1776857537)	    
+Github: [mx-xiong](https://github.com/mx-xiong)        
 Twitter: [XX]()
 
 ----
-
-
-[![新浪微博](http://service.t.sina.com.cn/widget/qmd/2640028293/e89ace5c/1.png)](http://weibo.com/u/2640028293?s=6uyXnP)

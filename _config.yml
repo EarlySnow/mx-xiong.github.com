@@ -2,7 +2,7 @@
 markdown: rdiscount 
 permalink: /:year/:month/:day/:title/
 url: 
-author: lazyyang
+author: mx-xiong
 highlighter: pygments
 safe: true
 paginate: 16
